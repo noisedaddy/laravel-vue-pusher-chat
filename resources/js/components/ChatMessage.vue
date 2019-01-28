@@ -5,6 +5,7 @@
             <div class="card-body">
                 Messages
             </div>
+            <small>Author Name</small>
         </div>
     </div>
 </template>

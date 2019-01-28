@@ -11,6 +11,7 @@
         <div id="app">
             <h1>Chatroom</h1>
             <chatmessage></chatmessage>
+            <chatlog></chatlog>
         </div>
         <script src="js/app.js" charset="utf-8"></script>
     </body>
