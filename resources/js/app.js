@@ -23,6 +23,8 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('chatmessage', require('./components/ChatMessage.vue').default);
 Vue.component('chatlog', require('./components/ChatLog.vue').default);
+Vue.component('chatcomposer', require('./components/ChatComposer.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

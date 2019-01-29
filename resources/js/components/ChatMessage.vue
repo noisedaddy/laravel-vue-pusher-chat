@@ -3,17 +3,20 @@
         <div class="card">
             <div class="card-header">Chat</div>
             <div class="card-body">
-                Messages
+                {{ message }}
             </div>
-            <small>Author Name</small>
+            <small>{{ user }}</small>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                message : "This is some chat message",
+                user: "John Doe"
+            }
         }
     }
 </script>
