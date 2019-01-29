@@ -1,22 +1,17 @@
 <template>
     <div class="col-md-8">
-        <div class="card">
+        <div class="chatmessage">
             <div class="card-header">Chat</div>
             <div class="card-body">
-                {{ message }}
+                {{ message.message }}
             </div>
-            <small>{{ user }}</small>
+            <small>{{ message.user }}</small>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                message : "This is some chat message",
-                user: "John Doe"
-            }
-        }
+        props: ['message']
     }
 </script>

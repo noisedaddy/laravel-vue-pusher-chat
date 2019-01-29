@@ -1,14 +1,24 @@
 <template>
    <div class="chat-log">
-       <chatmessage></chatmessage>
-       <chatmessage></chatmessage>
+       <chatmessage v-for="message in messages" v-bind:key="message"></chatmessage>
    </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                        messages: [
+                            {
+                                message : "Hi There!",
+                                user: "John Doe"
+                            },
+                            {
+                                message : "Hello",
+                                user: "John Smith"
+                            }
+                        ]
+                    }
         }
     }
 </script>
