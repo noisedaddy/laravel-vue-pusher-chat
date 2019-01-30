@@ -1,6 +1,6 @@
 <template>
    <div class="chatlog">
-       <chatmessage v-for="message in messages" :key="message"></chatmessage>
+       <chatmessage v-for="message in messages" v-bind:key="message"></chatmessage>
    </div>
 </template>
 
