@@ -32,5 +32,10 @@ Vue.component('chatcomposer', require('./components/ChatComposer.vue').default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    methods: {
+        addMessage(){
+            console.log("MessageAdded");
+        }
+    }
 });

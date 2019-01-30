@@ -1,5 +1,5 @@
 <template>
-   <div class="chat-log">
+   <div class="chatlog">
        <chatmessage v-for="message in messages" v-bind:key="message"></chatmessage>
    </div>
 </template>

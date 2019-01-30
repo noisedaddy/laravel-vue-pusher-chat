@@ -1772,7 +1772,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("chat composer.");
+  },
+  data: function data() {
+    return {
+      messageText: ""
+    };
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      this.$emit("sent message", {
+        message: this.messageText,
+        author: "John DOe"
+      });
+      console.log(this.messageText);
+      this.messageText = "";
+    }
   }
 });
 
@@ -1831,7 +1846,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['message']
+  data: function data() {
+    return {
+      props: ['message']
+    };
+  }
 });
 
 /***/ }),
@@ -6107,7 +6126,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.chat-composer {\n    display: flex;\n}\n.chat-composer input {\n    flex: 1 auto;\n}\n.chat-composer button {\n    border-radius: 0;\n}\n", ""]);
+exports.push([module.i, "\n.chat-composer {\n  display: flex;\n}\n.chat-composer input {\n  flex: 1 auto;\n}\n.chat-composer button {\n  border-radius: 0;\n}\n", ""]);
 
 // exports
 
@@ -37328,22 +37347,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "chatcomposer" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.messageText,
+          expression: "messageText"
+        }
+      ],
+      attrs: { type: "text", placeholder: "start typeing your message" },
+      domProps: { value: _vm.messageText },
+      on: {
+        "keyup.": function($event) {},
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.messageText = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-primary", on: { click: _vm.sendMessage } },
+      [_vm._v("Send")]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "chat-composer" }, [
-      _c("input", {
-        attrs: { type: "text", placeholder: "start typeing your message" }
-      }),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Send")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37367,7 +37401,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "chat-log" },
+    { staticClass: "chatlog" },
     _vm._l(_vm.messages, function(message) {
       return _c("chatmessage", { key: message })
     }),
@@ -48706,7 +48740,12 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  methods: {
+    addMessage: function addMessage() {
+      console.log("MessageAdded");
+    }
+  }
 });
 
 /***/ }),

@@ -9,10 +9,10 @@
     </head>
     <body>
         <div id="app">
-            <h1>Chatroom</h1>
+            <h1>Discussion</h1>
             <chatmessage></chatmessage>
             <chatlog></chatlog>
-            <chatcomposer></chatcomposer>
+            <chatcomposer v-on:messagesent="AddMessage"></chatcomposer>
         </div>
         <script src="js/app.js" charset="utf-8"></script>
     </body>
