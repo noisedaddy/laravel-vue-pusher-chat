@@ -1,6 +1,6 @@
 <template>
   <div class="chatcomposer">
-    <input type="text" placeholder="start typeing your message" v-model="messageText" @keyup.>
+    <input type="text" placeholder="start typeing your message" v-model="messageText" @keyup="sendMessage">
     <button class="btn btn-primary" @click="sendMessage">Send</button>
   </div>
 </template>
@@ -17,9 +17,9 @@ export default {
   },
   methods: {
     sendMessage() {
-      this.$emit("sent message", {
+      this.$emit("messagesent", {
         message: this.messageText,
-        author: "John DOe"
+        user: "John DOe"
       });
       console.log(this.messageText);
       this.messageText = "";

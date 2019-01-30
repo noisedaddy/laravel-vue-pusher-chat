@@ -1781,9 +1781,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendMessage: function sendMessage() {
-      this.$emit("sent message", {
+      this.$emit("messagesent", {
         message: this.messageText,
-        author: "John DOe"
+        user: "John DOe"
       });
       console.log(this.messageText);
       this.messageText = "";
@@ -1809,17 +1809,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      messages: [{
-        message: "Hi There!",
-        user: "John Doe"
-      }, {
-        message: "Hello",
-        user: "John Smith"
-      }]
-    };
-  }
+  props: ['messages']
 });
 
 /***/ }),
@@ -1846,11 +1836,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      props: ['message']
-    };
-  }
+  props: ['message']
 });
 
 /***/ }),
@@ -37360,7 +37346,7 @@ var render = function() {
       attrs: { type: "text", placeholder: "start typeing your message" },
       domProps: { value: _vm.messageText },
       on: {
-        "keyup.": function($event) {},
+        keyup: _vm.sendMessage,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -37435,10 +37421,10 @@ var render = function() {
       _c("div", { staticClass: "card-header" }, [_vm._v("Chat")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
-        _vm._v("\n            " + _vm._s(_vm.message.message) + "\n        ")
+        _vm._v("\n            " + _vm._s(_vm.message) + "\n        ")
       ]),
       _vm._v(" "),
-      _c("small", [_vm._v(_vm._s(_vm.message.user))])
+      _c("small", [_vm._v(_vm._s(_vm.message))])
     ])
   ])
 }
@@ -48741,6 +48727,15 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
 
 var app = new Vue({
   el: '#app',
+  data: {
+    messages: [{
+      message: "Hi There!",
+      user: "John Doe"
+    }, {
+      message: "Hello",
+      user: "John Smith"
+    }]
+  },
   methods: {
     addMessage: function addMessage() {
       console.log("MessageAdded");
@@ -49051,8 +49046,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

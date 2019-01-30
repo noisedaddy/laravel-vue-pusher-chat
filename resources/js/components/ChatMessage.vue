@@ -3,21 +3,16 @@
         <div class="chatmessage">
             <div class="card-header">Chat</div>
             <div class="card-body">
-                {{ message.message }}
+                {{ message }}
             </div>
-            <small>{{ message.user }}</small>
+            <small>{{ message }}</small>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        data()  {
-            return {
-                props: ['message']
-            }
-
-        }
+       props: ['message']
 
     }
 </script>

@@ -10,9 +10,8 @@
     <body>
         <div id="app">
             <h1>Discussion</h1>
-            <chatmessage></chatmessage>
-            <chatlog></chatlog>
-            <chatcomposer v-on:messagesent="AddMessage"></chatcomposer>
+            <chatlog :messages="messages"></chatlog>
+            <chatcomposer v-on:messagesent="addMessage"></chatcomposer>
         </div>
         <script src="js/app.js" charset="utf-8"></script>
     </body>
