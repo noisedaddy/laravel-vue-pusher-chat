@@ -34,7 +34,7 @@ Vue.component('chatcomposer', require('./components/ChatComposer.vue').default);
 const app = new Vue({
     el: '#app',
     data: {
-         
+
                     messages: [
                         {
                             message : "Hi There!",
@@ -45,7 +45,7 @@ const app = new Vue({
                             user: "John Smith"
                         }
                     ]
-                
+
     },
     methods: {
         addMessage(){

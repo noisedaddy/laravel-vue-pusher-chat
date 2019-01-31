@@ -3,9 +3,9 @@
         <div class="chatmessage">
             <div class="card-header">Chat</div>
             <div class="card-body">
-                {{ message }}
+                {{ message.message }}
             </div>
-            <small>{{ message }}</small>
+            <small>{{ message.user }}</small>
         </div>
     </div>
 </template>
@@ -13,6 +13,6 @@
 <script>
     export default {
        props: ['message']
-       
+
     }
 </script>

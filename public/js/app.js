@@ -37389,7 +37389,7 @@ var render = function() {
     "div",
     { staticClass: "chatlog" },
     _vm._l(_vm.messages, function(message) {
-      return _c("chatmessage", { key: message })
+      return _c("chatmessage", { attrs: { message: message } })
     }),
     1
   )
@@ -37421,10 +37421,10 @@ var render = function() {
       _c("div", { staticClass: "card-header" }, [_vm._v("Chat")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
-        _vm._v("\n            " + _vm._s(_vm.message) + "\n        ")
+        _vm._v("\n            " + _vm._s(_vm.message.message) + "\n        ")
       ]),
       _vm._v(" "),
-      _c("small", [_vm._v(_vm._s(_vm.message))])
+      _c("small", [_vm._v(_vm._s(_vm.message.user))])
     ])
   ])
 }
@@ -49046,8 +49046,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
