@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -35,20 +34,21 @@ const app = new Vue({
     el: '#app',
     data: {
 
-                    messages: [
-                        {
-                            message : "Hi There!",
-                            user: "John Doe"
-                        },
-                        {
-                            message : "Hello",
-                            user: "John Smith"
-                        }
-                    ]
+        messages: [{
+                message: "Hi There!",
+                user: "John Doe"
+            },
+            {
+                message: "Hello",
+                user: "John Smith"
+            }
+        ]
 
     },
     methods: {
-        addMessage(){
+        addMessage(message) {
+            //Add to existing message, persist to db
+            this.messages.push(message);
             console.log("MessageAdded");
         }
     }

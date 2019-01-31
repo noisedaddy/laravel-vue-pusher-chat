@@ -1,6 +1,6 @@
 <template>
    <div class="chatlog">
-       <chatmessage v-for="message in messages" v-bind:message="message"></chatmessage>
+       <chatmessage v-for="message in messages" :message="message"></chatmessage>
    </div>
 </template>
 
@@ -9,3 +9,8 @@
         props: ['messages']
     }
 </script>
+<style lang="css">
+.chatlog .chatmessage:nth-child(even) {
+    background-color: #ccc;
+}
+</style>
