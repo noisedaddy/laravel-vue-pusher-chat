@@ -48775,6 +48775,8 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+var API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public/'; // const API_URL = process.env.API_URL;
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -48792,6 +48794,12 @@ var app = new Vue({
       this.messages.push(message);
       console.log("MessageAdded");
     }
+  },
+  //after component is created
+  created: function created() {
+    axios.get(API_URL + '/messages').then(function (response) {
+      console.log(response);
+    });
   }
 });
 
