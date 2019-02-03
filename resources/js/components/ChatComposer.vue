@@ -18,8 +18,10 @@ export default {
   methods: {
     sendMessage() {
       this.$emit("messagesent", {
-        message: this.messageText,
-        user: "John Doe Second"
+        message: this.messageText,        
+        user: {
+          name: "John Doe Second"
+        }
       });
       console.log(this.messageText);
       this.messageText = '';

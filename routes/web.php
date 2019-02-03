@@ -20,8 +20,14 @@ Route::get('/chat', function(){
 })->middleware('auth');
 
 Route::get('/messages',function(){
-    return App\Message::all();
-});
+    return App\Message::with('user')->get();
+})->middleware('auth');
+
+Route::post('/messages',function(){
+    $user = Auth::user();
+    $user->messages()->create(['message'=>request('message')]);
+    return ['status'=>'OK'];
+})->middleware('auth');
 
 Auth::routes();
 

@@ -1783,7 +1783,9 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       this.$emit("messagesent", {
         message: this.messageText,
-        user: "John Doe Second"
+        user: {
+          name: "John Doe Second"
+        }
       });
       console.log(this.messageText);
       this.messageText = '';
@@ -1802,6 +1804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -6128,7 +6131,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.chatlog .chatmessage:nth-child(even) {\n    background-color: #ccc;\n}\n", ""]);
+exports.push([module.i, "\n.chatlog .chatmessage:nth-child(even) {\n    background-color: #ccc;\n}\n.empty {\n    text-align: center;\n    padding: 1em;\n}\n", ""]);
 
 // exports
 
@@ -37442,10 +37445,28 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "chatlog" },
-    _vm._l(_vm.messages, function(message) {
-      return _c("chatmessage", { attrs: { message: message } })
-    }),
-    1
+    [
+      _vm._l(_vm.messages, function(message) {
+        return _c("chatmessage", { attrs: { message: message } })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.messages.length == 0,
+              expression: "messages.length == 0"
+            }
+          ],
+          staticClass: "empty"
+        },
+        [_vm._v("Nothing here yet")]
+      )
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -37474,7 +37495,7 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("p", [_vm._v(_vm._s(_vm.message.message))]),
       _vm._v(" "),
-      _c("small", [_vm._v(_vm._s(_vm.message.user))])
+      _c("small", [_vm._v(_vm._s(_vm.message.user.name))])
     ])
   ])
 }
@@ -48775,30 +48796,31 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public/'; // const API_URL = process.env.API_URL;
+var API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public'; // const API_URL = process.env.API_URL;
 
 var app = new Vue({
   el: '#app',
   data: {
-    messages: [{
-      message: "Hi There!",
-      user: "John Doe"
-    }, {
-      message: "Hello",
-      user: "John Smith"
-    }]
+    messages: []
   },
   methods: {
     addMessage: function addMessage(message) {
       //Add to existing message, persist to db
       this.messages.push(message);
-      console.log("MessageAdded");
+      console.log(message);
+      axios.post(API_URL + "/messages", message).then(function (response) {
+        console.log(response.data);
+      });
     }
   },
-  //after component is created
+  //after component is created and mountened
   created: function created() {
-    axios.get(API_URL + '/messages').then(function (response) {
-      console.log(response);
+    var _this = this;
+
+    console.log(Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).API_URL);
+    axios.get(API_URL + "/messages").then(function (response) {
+      console.log(response.data);
+      _this.messages = response.data;
     });
   }
 });
@@ -49124,8 +49146,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
