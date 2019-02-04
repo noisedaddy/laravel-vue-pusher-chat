@@ -1,4 +1,5 @@
 <?php
+use App\Events\MessagePosted;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,12 @@ Route::get('/messages',function(){
 
 Route::post('/messages',function(){
     $user = Auth::user();
-    $user->messages()->create(['message'=>request('message')]);
+    $message = $user->messages()->create(['message'=>request('message')]);
+
+    event(new MessagePosted($message), $user);
     return ['status'=>'OK'];
+
+
 })->middleware('auth');
 
 Auth::routes();

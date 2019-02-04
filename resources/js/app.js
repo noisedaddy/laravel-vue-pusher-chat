@@ -30,8 +30,9 @@ Vue.component('chatcomposer', require('./components/ChatComposer.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public';
-// const API_URL = process.env.API_URL;
+let API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public';
+// let API_URL = process.env.API_URL;
+
 
 const app = new Vue({
     el: '#app',
@@ -52,7 +53,6 @@ const app = new Vue({
         }
     },//after component is created and mountened
     created (){
-        console.log(process.env.API_URL);
         axios.get(API_URL+"/messages").then(response => {
             console.log(response.data);
             this.messages = response.data;

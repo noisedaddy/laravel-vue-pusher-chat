@@ -48796,7 +48796,7 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public'; // const API_URL = process.env.API_URL;
+var API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public'; // let API_URL = process.env.API_URL;
 
 var app = new Vue({
   el: '#app',
@@ -48817,7 +48817,6 @@ var app = new Vue({
   created: function created() {
     var _this = this;
 
-    console.log(Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).API_URL);
     axios.get(API_URL + "/messages").then(function (response) {
       console.log(response.data);
       _this.messages = response.data;
@@ -49146,8 +49145,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
