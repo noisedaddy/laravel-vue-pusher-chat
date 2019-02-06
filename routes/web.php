@@ -27,7 +27,6 @@ Route::get('/messages',function(){
 Route::post('/messages',function(){
     $user = Auth::user();
     $message = $user->messages()->create(['message'=>request('message')]);
-
     event(new MessagePosted($message), $user);
     return ['status'=>'OK'];
 
