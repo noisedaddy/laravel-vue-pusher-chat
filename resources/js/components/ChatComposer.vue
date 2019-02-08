@@ -18,7 +18,7 @@ export default {
   methods: {
     sendMessage() {
       this.$emit("messagesent", {
-        message: this.messageText,        
+        message: this.messageText,
         user: {
           name: "John Doe Second"
         }

@@ -38,7 +38,8 @@ const app = new Vue({
     el: '#app',
     data: {
 
-        messages: []
+        messages: [],
+        usersInRoom: []
 
     },
     methods: {
@@ -59,13 +60,23 @@ const app = new Vue({
         });
 
         Echo.join('chatroom')
-        // .here()
-        .joining()
-        .leaving()
+        .here((users) =>  {
+            this.usersInRoom = users;
+        })
+        .joining((user) => {
+            this.usersInRoom.push(user);
+        })
+        .leaving((user) => {
+            this.usersInRoom = this.usersInRoom.filter(u => u != user);
+        })
         .listen('MessagePosted', (e) => {
             console.log('START Event: ');
             console.log(e);
             console.log('END Event: ');
+            this.messages.push({
+                message: e.message.message,
+                user: e.user
+            });
         });
 
     }

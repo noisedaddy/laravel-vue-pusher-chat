@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="app">
-            <h1>Discussion</h1>
+            <h1>Discussion<span class="badge">@{{ usersInRoom.length }}</span></h1>
             <chatlog :messages="messages"></chatlog>
             <chatcomposer v-on:messagesent="addMessage"></chatcomposer>
         </div>
