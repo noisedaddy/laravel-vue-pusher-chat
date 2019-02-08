@@ -54,17 +54,18 @@ const app = new Vue({
     },//after component is created and mountened
     created (){
         axios.get(API_URL+"/messages").then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.messages = response.data;
         });
 
         Echo.join('chatroom')
-        .here()
+        // .here()
         .joining()
         .leaving()
         .listen('MessagePosted', (e) => {
-            console.log('Event ');
+            console.log('START Event: ');
             console.log(e);
+            console.log('END Event: ');
         });
 
     }

@@ -58915,12 +58915,14 @@ var app = new Vue({
     var _this = this;
 
     axios.get(API_URL + "/messages").then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
       _this.messages = response.data;
     });
-    Echo.join('chatroom').here().joining().leaving().listen('MessagePosted', function (e) {
-      console.log('Event ');
+    Echo.join('chatroom') // .here()
+    .joining().leaving().listen('MessagePosted', function (e) {
+      console.log('START Event: ');
       console.log(e);
+      console.log('END Event: ');
     });
   }
 });
@@ -58982,6 +58984,7 @@ if (token) {
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  authEndpoint: "http://localhost/~veljko/laravel-realchat-demo-v1/public/broadcasting/auth",
   broadcaster: 'pusher',
   key: "bad2a9532457915f268e",
   cluster: "eu",
