@@ -30,7 +30,7 @@ Vue.component('chatcomposer', require('./components/ChatComposer.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-let API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public';
+let API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public';
 // let API_URL = process.env.API_URL;
 
 

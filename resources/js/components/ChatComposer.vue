@@ -10,6 +10,7 @@ export default {
   mounted() {
     console.log("chat composer.");
   },
+  props: ['user'],
   data() {
     return {
       messageText: ''
@@ -20,7 +21,7 @@ export default {
       this.$emit("messagesent", {
         message: this.messageText,
         user: {
-          name: "John Doe Second"
+          name: this.user.name
         }
       });
       console.log(this.messageText);

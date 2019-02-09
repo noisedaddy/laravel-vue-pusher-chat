@@ -1774,6 +1774,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log("chat composer.");
   },
+  props: ['user'],
   data: function data() {
     return {
       messageText: ''
@@ -1784,7 +1785,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit("messagesent", {
         message: this.messageText,
         user: {
-          name: "John Doe Second"
+          name: this.user.name
         }
       });
       console.log(this.messageText);
@@ -58893,7 +58894,7 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var API_URL = 'http://localhost/~veljko/laravel-realchat-demo-v1/public'; // let API_URL = process.env.API_URL;
+var API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public'; // let API_URL = process.env.API_URL;
 
 var app = new Vue({
   el: '#app',
@@ -58997,7 +58998,7 @@ if (token) {
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  authEndpoint: "http://localhost/~veljko/laravel-realchat-demo-v1/public/broadcasting/auth",
+  authEndpoint: "http://localhost/~veljko/laravel-vue-pusher-chat/public/broadcasting/auth",
   broadcaster: 'pusher',
   key: "bad2a9532457915f268e",
   cluster: "eu",
@@ -59267,8 +59268,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-realchat-demo-v1/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/veljko/public_html/laravel-vue-pusher-chat/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
