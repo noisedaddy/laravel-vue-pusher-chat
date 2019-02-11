@@ -58893,8 +58893,7 @@ Vue.component('chatcomposer', __webpack_require__(/*! ./components/ChatComposer.
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-var API_URL = 'http://localhost/~veljko/laravel-vue-pusher-chat/public'; // let API_URL = process.env.API_URL;
+// let API_URL = process.env.MIX_APP_URL;
 
 var app = new Vue({
   el: '#app',
@@ -58907,7 +58906,7 @@ var app = new Vue({
       //Add to existing message, persist to db
       this.messages.push(message);
       console.log(message);
-      axios.post(API_URL + "/messages", message).then(function (response) {
+      axios.post("http://localhost/~veljko/laravel-vue-pusher-chat/public" + "/messages", message).then(function (response) {
         console.log(response.data);
       });
     }
@@ -58916,7 +58915,7 @@ var app = new Vue({
   created: function created() {
     var _this = this;
 
-    axios.get(API_URL + "/messages").then(function (response) {
+    axios.get("http://localhost/~veljko/laravel-vue-pusher-chat/public" + "/messages").then(function (response) {
       // console.log(response.data);
       _this.messages = response.data;
     });
@@ -58998,7 +58997,7 @@ if (token) {
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  authEndpoint: "http://localhost/~veljko/laravel-vue-pusher-chat/public/broadcasting/auth",
+  authEndpoint: "http://localhost/~veljko/laravel-vue-pusher-chat/public" + "/broadcasting/auth",
   broadcaster: 'pusher',
   key: "bad2a9532457915f268e",
   cluster: "eu",
